@@ -9,42 +9,37 @@ package practice.task2;
 
 public class CheckDogEquipment extends Exception {
 
-    boolean collar; // ошейник
-    boolean leash; // поводок
-    boolean muzzle; // намордник
+    private boolean collar; // ошейник
+    private boolean leash; // поводок
+    private boolean muzzle; // намордник
 
-    public CheckDogEquipment() throws Exception {
-        throw new Exception("Ничего не надето");
+    public void wearCollar() {
+        this.collar = true;
     }
 
-    public CheckDogEquipment(boolean collar) throws Exception {
-        this.collar = collar;
-        throw new Exception("Нет поводка и намордника");
+    public void wearLeash() {
+        this.leash = true;
     }
 
-    public CheckDogEquipment(boolean collar, boolean leash) throws Exception {
-        this.collar = collar;
-        this.leash = leash;
-        throw new Exception("Нет намордника");
+    public void wearMuzzle() {
+        this.muzzle = true;
     }
 
-    public CheckDogEquipment(boolean collar, boolean leash, boolean muzzle) {
-        this.collar = collar;
-        this.leash = leash;
-        this.muzzle = muzzle;
-        walk();
-    }
-
-    public void walk() {
-        System.out.println("Walking...");
+    public void walk() throws Exception {
+        if (!collar || !leash || !muzzle) {
+            throw new Exception("Собака не готова к прогулке!");
+        } else {
+            System.out.println("Walking...");
+        }
     }
 
     public static void main(String[] args) {
+        CheckDogEquipment dog = new CheckDogEquipment();
+        dog.wearCollar();
+        dog.wearLeash();
+//        dog.wearMuzzle();
         try {
-//            new CheckDogEquipment();
-//            new CheckDogEquipment(true);
-//            new CheckDogEquipment(true, true);
-            new CheckDogEquipment(true, true, true);
+            dog.walk();
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
