@@ -18,19 +18,19 @@ class Dog {
     private boolean leash; // поводок
     private boolean muzzle; // намордник
 
-    public void wearCollar() {
-        this.collar = true;
+    public void wearCollar(boolean collar) {
+        this.collar = collar;
     }
 
-    public void wearLeash() {
-        this.leash = true;
+    public void wearLeash(boolean leash) {
+        this.leash = leash;
     }
 
-    public void wearMuzzle() {
-        this.muzzle = true;
+    public void wearMuzzle(boolean muzzle) {
+        this.muzzle = muzzle;
     }
 
-    public void walk() throws Exception {
+    public void walk() throws DogException {
         if (!collar || !leash || !muzzle) {
             throw new DogException();
         } else {
@@ -41,9 +41,9 @@ class Dog {
 
     public static void main(String[] args) {
         Dog dog = new Dog();
-        dog.wearCollar();
-        dog.wearLeash();
-//        dog.wearMuzzle();
+        dog.wearCollar(true);
+        dog.wearLeash(true);
+        dog.wearMuzzle(false);
         try {
             dog.walk();
         } catch (DogException e) {
