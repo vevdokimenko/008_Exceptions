@@ -13,7 +13,7 @@ class DogException extends Exception {
     }
 }
 
-class Dog extends Exception {
+class Dog {
     private boolean collar; // ошейник
     private boolean leash; // поводок
     private boolean muzzle; // намордник
