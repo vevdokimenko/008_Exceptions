@@ -13,6 +13,10 @@ public class CheckDogEquipment extends Exception {
     private boolean leash; // поводок
     private boolean muzzle; // намордник
 
+    public CheckDogEquipment() {
+        super("Собака не готова к прогулке!");
+    }
+
     public void wearCollar() {
         this.collar = true;
     }
@@ -27,7 +31,7 @@ public class CheckDogEquipment extends Exception {
 
     public void walk() throws Exception {
         if (!collar || !leash || !muzzle) {
-            throw new Exception("Собака не готова к прогулке!");
+            throw new CheckDogEquipment();
         } else {
             System.out.println("Walking...");
         }
