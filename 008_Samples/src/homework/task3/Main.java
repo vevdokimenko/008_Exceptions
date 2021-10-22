@@ -16,12 +16,7 @@ public class Main {
             System.out.println(prices[i]);
         }
 
-        Arrays.sort(prices, new Comparator<Price>() {
-            @Override
-            public int compare(Price o1, Price o2) {
-                return o1.getShop().compareTo(o2.getShop());
-            }
-        });
+        Arrays.sort(prices, Comparator.comparing(Price::getShop));
 
         System.out.println("Введите название магазина, для показа его товаров: ");
         String shop = sc.nextLine();
