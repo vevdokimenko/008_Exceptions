@@ -2,6 +2,7 @@ package homework.task2;
 
 import java.time.Year;
 import java.time.format.DateTimeParseException;
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Main {
@@ -27,6 +28,8 @@ public class Main {
                 System.out.println(e.getMessage());
             }
         }
+
+        Arrays.sort(workers);
 
         System.out.println("Введите число лет, чтобы проверить стаж:");
         experience = sc.nextInt();
