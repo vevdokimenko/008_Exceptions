@@ -3,6 +3,7 @@ package homework.task2;
 import java.time.Year;
 import java.time.format.DateTimeParseException;
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.Scanner;
 
 public class Main {
@@ -29,7 +30,12 @@ public class Main {
             }
         }
 
-        Arrays.sort(workers);
+        Arrays.sort(workers, new Comparator<Worker>() {
+            @Override
+            public int compare(Worker o1, Worker o2) {
+                return o1.getName().compareTo(o2.getName());
+            }
+        });
 
         System.out.println("Введите число лет, чтобы проверить стаж:");
         experience = sc.nextInt();
